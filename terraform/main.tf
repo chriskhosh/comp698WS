@@ -10,7 +10,7 @@ provider "google" {
   project = "comp698-cek1020"
 }
 resource "google_compute_instance_template" "instance_template" {
-  name_prefix  = "instanceTemplate-"
+  name_prefix  = "instancetemplate-"
   machine_type = "f1-micro"
   region       = "us-central1"
 
