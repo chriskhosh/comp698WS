@@ -11,7 +11,7 @@ provider "google" {
 }
 resource "google_compute_instance_template" "instance_template" {
   name_prefix  = "instance_template-"
-  machine_type = "n1-standard-1"
+  machine_type = "f1-micro"
   region       = "us-central1"
 
   // boot disk
