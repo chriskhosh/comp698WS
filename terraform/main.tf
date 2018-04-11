@@ -16,7 +16,7 @@ resource "google_compute_instance_template" "instance_template" {
 
   // boot disk
   disk {
-    source_image = "cos-stable"
+    source_image = "cos-stable-65-10323-69-0"
   }
 
   lifecycle {
