@@ -9,20 +9,24 @@ provider "google" {
   region = "us-central1"
 }
 resource "google_compute_instance_template" "instance_template" {
-  name = "instance_template"
-
-  name_prefix  = "tf-server"
+  name  = "instance_template"
   machine_type = "n1-standard-1"
   region       = "us-central1"
+
+  // boot disk
   disk {
     source_image = "cos-stable"
   }
-}
-resource "google_compute_instance_group_manager" "group_manager" {
-  name = "group_manager"
 
-  base_instance_name = "tf-server"
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "google_compute_instance_group_manager" "instance_group_manager" {
+  name               = "instance-group-manager"
   instance_template  = "${google_compute_instance_template.instance_template.self_link}"
-  update_strategy    = "NONE"
+  base_instance_name = "tf-server"
   zone               = "us-central1-a"
+  target_size        = "1"
 }
