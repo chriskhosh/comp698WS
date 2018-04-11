@@ -20,7 +20,7 @@ resource "google_compute_instance_group_manager" "group_manager" {
   name = "group_manager"
 
   base_instance_name = "tf-server"
-  instance_template  = "${google_compute_instance_template.appserver.self_link}"
+  instance_template  = "${google_compute_instance_template.instance_template.self_link}"
   update_strategy    = "NONE"
   zone               = "us-central1-a"
 }
