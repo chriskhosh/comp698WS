@@ -7,6 +7,7 @@ terraform {
 }
 provider "google" {
   region = "us-central1"
+  project = "comp698-cek1020"
 }
 resource "google_compute_instance_template" "instance_template" {
   name_prefix  = "instance_template-"
