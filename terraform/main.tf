@@ -9,6 +9,8 @@ provider "google" {
   region = "us-central1"
 }
 resource "google_compute_instance_template" "instance_template" {
+  name = "instance_template"
+
   name_prefix  = "tf-server"
   machine_type = "n1-standard-1"
   region       = "us-central1"
