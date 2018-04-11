@@ -10,7 +10,7 @@ provider "google" {
   project = "comp698-cek1020"
 }
 resource "google_compute_instance_template" "instance_template" {
-  name_prefix  = "instance_template-"
+  name_prefix  = "instanceTemplate-"
   machine_type = "f1-micro"
   region       = "us-central1"
 
@@ -29,5 +29,5 @@ resource "google_compute_instance_group_manager" "instance_group_manager" {
   instance_template  = "${google_compute_instance_template.instance_template.self_link}"
   base_instance_name = "tf-server"
   zone               = "us-central1-a"
-  target_size        = "1"
+  target_size        = "2"
 }
