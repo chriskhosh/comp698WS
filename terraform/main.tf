@@ -9,6 +9,11 @@ provider "google" {
   region = "us-central1"
   project = "comp698-cek1020"
 }
+resource "google_storage_bucket" "image-store" {
+  project  = "comp698-cek1020"
+  name     = "storageBucket01"
+  location = "us-central1"
+}
 resource "google_compute_instance_template" "instance_template" {
   name_prefix  = "instancetemplate-"
   machine_type = "f1-micro"
