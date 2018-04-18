@@ -11,7 +11,7 @@ provider "google" {
 }
 resource "google_storage_bucket" "image-store" {
   project  = "comp698-cek1020"
-  name     = "storageBucket01"
+  name     = "bucket-two"
   location = "us-central1"
 }
 resource "google_compute_instance_template" "instance_template" {
