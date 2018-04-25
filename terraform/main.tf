@@ -45,15 +45,15 @@ resource "google_compute_instance_template" "instance_template" {
   }
 
   metadata {
-    gce-container-declaration = <<EOF
-    spec:
+      gce-container-declaration = <<EOF
+  spec:
     containers:
-    - image: 'gcr.io/comp698-cek1020/github-chriskhosh-comp698ws:23ea50cb9a9ed740c64090317736cd11ba949fc9'
-      name: service-container
-      stdin: false
-      tty: false
-      restartPolicy: Always
-    EOF
+      - image: '[gcr.io/comp698-cek1020/github-chriskhosh-comp698ws:3440f36be9e5ad2880081df8a61c377629f3c80f]'
+        name: service-container
+        stdin: false
+        tty: false
+    restartPolicy: Always
+  EOF
   }
 }
 
