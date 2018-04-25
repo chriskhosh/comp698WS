@@ -14,8 +14,8 @@ resource "google_storage_bucket" "image-store" {
   name     = "bucket-two"
   location = "us-central1"
 }
-resource "google_compute_instance_template" "instance_template" {
-  name_prefix  = "instancetemplate-"
+resource "google_compute_instance_template" "instance_template_prod" {
+  name_prefix  = "instancetemplateprod-"
   machine_type = "f1-micro"
   region       = "us-central1"
 
