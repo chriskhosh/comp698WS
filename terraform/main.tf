@@ -19,6 +19,8 @@ resource "google_compute_instance_template" "instance_template" {
   machine_type = "f1-micro"
   region       = "us-central1"
 
+  tags = ["http-server"]
+
   // boot disk
   disk {
     source_image = "cos-cloud/cos-stable"
@@ -26,10 +28,20 @@ resource "google_compute_instance_template" "instance_template" {
 
   network_interface {
     network = "default"
+    access_config {
+    }
   }
 
   lifecycle {
     create_before_destroy = true
+  }
+
+  service_account {
+    scopes = [
+      "https://www.googleapis.com/auth/compute",
+      "https://www.googleapis.com/auth/cloud-platform",
+      "https://www.googleapis.com/auth/devstorage.read_write"
+    ]
   }
 }
 
